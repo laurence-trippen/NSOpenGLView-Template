@@ -12,6 +12,8 @@
 		04F281962A99B21A003B69C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04F281952A99B21A003B69C6 /* Assets.xcassets */; };
 		04F281992A99B21A003B69C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04F281972A99B21A003B69C6 /* Main.storyboard */; };
 		04F2819B2A99B21A003B69C6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F2819A2A99B21A003B69C6 /* main.m */; };
+		04F281A42A99B660003B69C6 /* LLTOpenGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F281A32A99B660003B69C6 /* LLTOpenGLView.m */; };
+		04F281A72A99CB8D003B69C6 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F281A62A99CB8D003B69C6 /* OpenGL.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,9 @@
 		04F281982A99B21A003B69C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		04F2819A2A99B21A003B69C6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		04F2819C2A99B21A003B69C6 /* NSOpenGLViewTest.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NSOpenGLViewTest.entitlements; sourceTree = "<group>"; };
+		04F281A22A99B660003B69C6 /* LLTOpenGLView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LLTOpenGLView.h; sourceTree = "<group>"; };
+		04F281A32A99B660003B69C6 /* LLTOpenGLView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LLTOpenGLView.m; sourceTree = "<group>"; };
+		04F281A62A99CB8D003B69C6 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04F281A72A99CB8D003B69C6 /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +48,7 @@
 			children = (
 				04F2818E2A99B218003B69C6 /* NSOpenGLViewTest */,
 				04F2818D2A99B218003B69C6 /* Products */,
+				04F281A52A99CB8D003B69C6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,8 +71,18 @@
 				04F281972A99B21A003B69C6 /* Main.storyboard */,
 				04F2819A2A99B21A003B69C6 /* main.m */,
 				04F2819C2A99B21A003B69C6 /* NSOpenGLViewTest.entitlements */,
+				04F281A22A99B660003B69C6 /* LLTOpenGLView.h */,
+				04F281A32A99B660003B69C6 /* LLTOpenGLView.m */,
 			);
 			path = NSOpenGLViewTest;
+			sourceTree = "<group>";
+		};
+		04F281A52A99CB8D003B69C6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				04F281A62A99CB8D003B69C6 /* OpenGL.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +156,7 @@
 			files = (
 				04F281942A99B218003B69C6 /* ViewController.m in Sources */,
 				04F2819B2A99B21A003B69C6 /* main.m in Sources */,
+				04F281A42A99B660003B69C6 /* LLTOpenGLView.m in Sources */,
 				04F281912A99B218003B69C6 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

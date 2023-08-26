@@ -7,20 +7,19 @@
 
 #import "ViewController.h"
 
+
 @implementation ViewController
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-
-  // Do any additional setup after loading the view.
+  
+  NSWindow* mainWindow = [NSApplication sharedApplication].windows.firstObject;
+  
+  _glView = [[LLTOpenGLView alloc] initWithFrame: self.view.bounds];
+  
+  [mainWindow setDelegate: _glView];
+  
+  [self.view addSubview: _glView];
 }
-
-
-- (void)setRepresentedObject:(id)representedObject {
-  [super setRepresentedObject:representedObject];
-
-  // Update the view, if already loaded.
-}
-
 
 @end

@@ -7,8 +7,12 @@
 
 #import <Cocoa/Cocoa.h>
 
+#import "LLTOpenGLView.h"
+
+
 @interface ViewController : NSViewController
 
+@property (nonatomic, strong) LLTOpenGLView* glView;
 
 @end
 
