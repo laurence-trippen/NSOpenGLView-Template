@@ -116,15 +116,34 @@ static CVReturn GlobalDisplayLinkCallback(CVDisplayLinkRef,
 }
 
 
+- (void) reshape {
+  [super reshape];  // Call the superclass's reshape method
+
+  NSLog(@"Reshape");
+  
+  self.frame = self.window.contentView.frame;
+  
+  // Get the new dimensions of the view
+  NSRect frame = [self bounds];
+  GLint width = frame.size.width;
+  GLint height = frame.size.height;
+
+  // Update the OpenGL viewport
+  glViewport(0, 0, width, height);
+}
+
+
 #pragma mark - Window Delegate
 
-
+/*
 - (void) windowDidResize:(NSNotification *)notification {
   NSLog(@"Resize");
   
   NSSize size = self.window.contentView.frame.size;
   
   if (size.width == 0 || size.height == 0) return;
+  
+  self.frame = self.window.contentView.frame;
   
   [[self openGLContext] makeCurrentContext];
   
@@ -136,11 +155,12 @@ static CVReturn GlobalDisplayLinkCallback(CVDisplayLinkRef,
   windowRect.size.width = size.width;
   windowRect.size.height = size.height;
   
-  glViewport(0, 0, windowRect.size.width, windowRect.size.height);
+  // glViewport(0, 0, windowRect.size.width, windowRect.size.height);
   // End temp
   
   CGLUnlockContext((CGLContextObj)[[self openGLContext] CGLContextObj]);
 }
+*/
 
 
 #pragma mark - Methods
@@ -151,15 +171,25 @@ static CVReturn GlobalDisplayLinkCallback(CVDisplayLinkRef,
   [[self openGLContext] makeCurrentContext];
   CGLLockContext((CGLContextObj)[[self openGLContext] CGLContextObj]);
 
-  NSLog(@"Update");
-  // Temp
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-  // EndTemp
+  
+  
+  // Draw here ...
+  glColor3f(1.0f, 0.85f, 0.35f);
+  glBegin(GL_TRIANGLES);
+  
+      glVertex3f(  0.0,  0.6, 0.0);
+      glVertex3f( -0.2, -0.3, 0.0);
+      glVertex3f(  0.2, -0.3 ,0.0);
+  
+  glEnd();
+  
+  // Draw End
 
   CGLFlushDrawable((CGLContextObj)[[self openGLContext] CGLContextObj]);
   CGLUnlockContext((CGLContextObj)[[self openGLContext] CGLContextObj]);
 
+  // TODO: Implement quit
   if (false) { // Update loop returns false
     [NSApp terminate:self];
   }
